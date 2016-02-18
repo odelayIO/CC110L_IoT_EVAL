@@ -18,7 +18,9 @@ This project implements the following features:
 
 ## Acronyms, Abbreviations, Terms and Definitions
 HAP : Home Automation Project
+
 RSSI : Received Signal Strength Indicator (dBm)
+
 LQI : Link Quality Indicator
 <br>
 <br>
