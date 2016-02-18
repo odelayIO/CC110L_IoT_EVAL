@@ -49,7 +49,7 @@ This testbed has the following components:
 
 [TI MSP430 LaunchPad Value Line Development Kit](http://www.ti.com/tool/msp-exp430g2)
 
-[TI IDE (similar to Arduino IDE)](http://energia.nu/)
+[Energia IDE (similar to Arduino IDE)](http://energia.nu/)
 <br>
 <br>
 
