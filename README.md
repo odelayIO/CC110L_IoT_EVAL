@@ -8,8 +8,9 @@
 ## Introduction
 This is the source code used to evaluate the TI CC110L Chipset.  The objective of this evaluation was to determine the maximum distance the signal could propagate using the lowest data rate, at the max transmit power.  In addition, this testbed was used to explore simple protocol(s) to implement guaranteed wireless communication packet system.
 This project implements the following features:
+
 1.	Wireless Link using the CC110L in the ISM band + MSP430G2553
-2.	Implements a simple SEND-ACK protocol
+2.  Implements a simple SEND-ACK protocol
 3.	Implements a Flash programing feature to program device address 
 4.	Implements a simple packet struct with a Python host interface
 5.	Creates a very simple interrupt interface on wireless sensor to indicate a packet transmission
