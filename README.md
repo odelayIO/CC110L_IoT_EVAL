@@ -14,6 +14,7 @@ This project implements the following features:
 3.	Implements a Flash programing feature to program device address 
 4.	Implements a simple packet struct with a Python host interface
 5.	Creates a very simple interrupt interface on wireless sensor to indicate a packet transmission
+
 <br>
 <br>
 
