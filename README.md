@@ -14,12 +14,13 @@ This project implements the following features:
 4.	Implements a simple packet struct with a Python host interface
 5.	Creates a very simple interrupt interface on wireless sensor to indicate a packet transmission
 <br>
-
+<br>
 
 ## Acronyms, Abbreviations, Terms and Definitions
-> HAP : Home Automation Project
-> RSSI : Received Signal Strength Indicator (dBm)
-> LQI : Link Quality Indicator
+HAP : Home Automation Project
+RSSI : Received Signal Strength Indicator (dBm)
+LQI : Link Quality Indicator
+<br>
 <br>
 
 ## Evaluation Testbed
@@ -33,6 +34,7 @@ a.	This receives the packets from a number of wireless sensors and sends status 
 3.	Host
 a.	This testbed used a Raspberry PI as the host.  The host application was written in Python to display and record the status information for all received packets.
 <br>
+<br>
 
 ## Components
 
@@ -42,9 +44,11 @@ a.	This testbed used a Raspberry PI as the host.  The host application was writt
 
 [TI IDE (similar to Arduino IDE)](http://energia.nu/)
 <br>
+<br>
 
 ## CC110L Energia Library
 The Energia IDE was used to compile and program the MSP430 LaunchPad using the CC110L Energia Library.  I made some slight changes to the original CC110L library to increase transmit power and to lower the data rate to improve link performance.  The CC110L has been provided in the Github repository.
+<br>
 <br>
 
 ## Overview of the Wireless Protocol
