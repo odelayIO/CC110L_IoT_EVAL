@@ -26,13 +26,13 @@ LQI : Link Quality Indicator
 ## Evaluation Testbed
 This testbed has the following components: 
 1.	hapTriggerSensor
-  a.The sensor will transmit the status when one of the two scenario:
-    i.	An Interrupt on the pin of MSP430 Microcontroller
-    ii.	The hapSimpleHub requests an update
+  * The sensor will transmit the status when one of the two scenario:
+    * An Interrupt on the pin of MSP430 Microcontroller
+    * The hapSimpleHub requests an update
 2.	hapSimpleHub
-a.	This receives the packets from a number of wireless sensors and sends status to the computer via the serial port. The status information includes: RSSI, LQI, Temperature, and a counter.  The counter is used to determine if the hapSimpleHub missed a packet.
-3.	Host
-a.	This testbed used a Raspberry PI as the host.  The host application was written in Python to display and record the status information for all received packets.
+  * This receives the packets from a number of wireless sensors and sends status to the computer via the serial port. The status information includes: RSSI, LQI, Temperature, and a counter.  The counter is used to determine if the hapSimpleHub missed a packet.
+3.  Host
+  * This testbed used a Raspberry PI as the host.  The host application was written in Python to display and record the status information for all received packets.
 <br>
 <br>
 
