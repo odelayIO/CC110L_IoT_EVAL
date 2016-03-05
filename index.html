@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="IoT Evaluation using the CC110L Chipset : IoT, Wireless">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>IoT Evaluation using the CC110L Chipset</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/odelayIO/CC110L_IoT_EVAL">View on GitHub</a>
+
+          <h1 id="project_title">IoT Evaluation using the CC110L Chipset</h1>
+          <h2 id="project_tagline">IoT, Wireless</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/odelayIO/CC110L_IoT_EVAL/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/odelayIO/CC110L_IoT_EVAL/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="simple-wireless-sensor-network-using-ti-msp430-launchpad-with-ti-cc110l-rf-boosterpack" class="anchor" href="#simple-wireless-sensor-network-using-ti-msp430-launchpad-with-ti-cc110l-rf-boosterpack" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple Wireless Sensor Network using TI MSP430 LaunchPad with TI CC110L RF BoosterPack</h1>
+
+<p><br>
+<img src="https://github.com/odelayIO/CC110L_IoT_EVAL/blob/master/images/demo_setup.jpg" alt="demo_setup">
+<br>
+<br>
+<br></p>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>This is the source code used to evaluate the TI CC110L Chipset.  The objective of this evaluation was to determine the maximum distance the signal could propagate using the lowest data rate, at the max transmit power.  In addition, this testbed was used to explore simple protocol(s) to implement guaranteed wireless communication packet system.
+This project implements the following features:</p>
+
+<ol>
+<li> Wireless Link using the CC110L in the ISM band + MSP430G2553</li>
+<li> Implements a simple SEND-ACK protocol</li>
+<li> Implements a Flash programing feature to program device address </li>
+<li> Implements a simple packet struct with a Python host interface</li>
+<li> Creates a very simple interrupt interface on wireless sensor to indicate a packet transmission</li>
+</ol>
+
+<p><br>
+<br></p>
+
+<h2>
+<a id="acronyms-abbreviations-terms-and-definitions" class="anchor" href="#acronyms-abbreviations-terms-and-definitions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acronyms, Abbreviations, Terms and Definitions</h2>
+
+<p>HAP : Home Automation Project</p>
+
+<p>RSSI : Received Signal Strength Indicator (dBm)</p>
+
+<p>LQI : Link Quality Indicator
+<br>
+<br></p>
+
+<h2>
+<a id="evaluation-testbed" class="anchor" href="#evaluation-testbed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Evaluation Testbed</h2>
+
+<p>This testbed has the following components: </p>
+
+<ol>
+<li> hapTriggerSensor
+
+<ul>
+<li>The sensor will transmit the status when one of the two scenario:
+
+<ul>
+<li>An Interrupt on the pin of MSP430 Microcontroller</li>
+<li>The hapSimpleHub requests an update</li>
+</ul>
+</li>
+</ul>
+</li>
+<li> hapSimpleHub
+
+<ul>
+<li>This receives the packets from a number of wireless sensors and sends status to the computer via the serial port. The status information includes: RSSI, LQI, Temperature, and a counter.  The counter is used to determine if the hapSimpleHub missed a packet.</li>
+</ul>
+</li>
+<li>Host
+
+<ul>
+<li>This testbed used a Raspberry PI as the host.  The host application was written in Python to display and record the status information for all received packets.
+<br>
+<br>
+</li>
+</ul>
+</li>
+</ol>
+
+<h2>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Components</h2>
+
+<p><a href="http://www.ti.com/tool/430boost-cc110l">TI CC110L RF BoosterPack</a></p>
+
+<p><a href="http://www.ti.com/tool/msp-exp430g2">TI MSP430 LaunchPad Value Line Development Kit</a></p>
+
+<p><a href="http://energia.nu/">Energia IDE (similar to Arduino IDE)</a>
+<br>
+<br></p>
+
+<h2>
+<a id="cc110l-energia-library" class="anchor" href="#cc110l-energia-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CC110L Energia Library</h2>
+
+<p>The Energia IDE was used to compile and program the MSP430 LaunchPad using the CC110L Energia Library.  I made some slight changes to the original CC110L library to increase transmit power and to lower the data rate to improve link performance.  The CC110L has been provided in the Github repository.
+<br>
+<br></p>
+
+<h2>
+<a id="overview-of-the-wireless-protocol" class="anchor" href="#overview-of-the-wireless-protocol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview of the Wireless Protocol</h2>
+
+<p>The wireless protocol uses acknowledgments, therefore the hapTriggerSensor will attempt to re-transmit the packet several times if an acknowledgement packet was not received.  This will evaluate the link performance when operating at the edge of service.  The hapSimpleHub sends status information through the serial port when a received packet has been demodulated without errors.
+A simple Python script communicates to the hapTiggerSensor through the serial port.  The Python script could be hosted on a Windows PC, but for this experiment a Raspberry PI was used as the host computer.
+<br>
+<br>
+<br></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">IoT Evaluation using the CC110L Chipset maintained by <a href="https://github.com/odelayIO">odelayIO</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
