@@ -1,6 +1,6 @@
 # Simple Wireless Sensor Network using TI MSP430 LaunchPad with TI CC110L RF BoosterPack
 <br>
-##### View on [gh-page](http://odelayio.github.io/atx_power/)
+##### View on [gh-page](http://odelayio.github.io/CC110L_IoT_EVAL/)
 <br>
 <br><br>
 
