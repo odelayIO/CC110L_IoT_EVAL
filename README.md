@@ -1,10 +1,12 @@
 # Simple Wireless Sensor Network using TI MSP430 LaunchPad with TI CC110L RF BoosterPack
 <br>
+
 ##### View on [gh-page](http://odelayio.github.io/CC110L_IoT_EVAL/)
 <br>
 <br><br>
 
 ![demo_setup](http://odelayio.github.io/CC110L_IoT_EVAL/images/demo_setup.jpg)
+
 <br>
 <br>
 <br>
@@ -68,6 +70,7 @@ A simple Python script communicates to the hapTiggerSensor through the serial po
 <br>
 <br>
 <br>
-****
+
+------
 [odelay.io](http://odelay.io) : Meaning to agree wholeheartedly or to express enthusiasm for an idea or object. Equivolent to "Right on" or "Cool".
 
